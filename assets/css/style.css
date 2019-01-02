@@ -338,9 +338,12 @@ h5 {
   text-align: right;
 }
 
+.nav-header {
+  margin-top: 70px;
+}
+
 .nav {
   text-align: right;
-  margin-top: 70px;
 }
 
 .nav li {
