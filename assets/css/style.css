@@ -134,7 +134,9 @@ table {
 
 .row,
 .row-alt {
-  min-width: 960px;
+  width: 960px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .row-alt {
@@ -154,6 +156,7 @@ table {
  .grid {
    margin: 0 auto;            /* Center the container and grid elements */
    width: 960px;
+   max-width: 100%;
  }
  
  .container {
@@ -456,7 +459,8 @@ form {
 
 input,
 select,
-textarea {
+textarea,
+.signinbutton {
   font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -571,7 +575,80 @@ table h4 {
   color: #a9b2b9;
 }
 
+.signinform {
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  width: 400px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
 
+.signinformtext,
+.forgot,
+.newaccount {
+  margin: 5px 0;
+}
+
+.forgot,
+.newaccount {
+  color: blue;
+}
+
+.username,
+.password {
+  width: 400px;
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.passwordtext,
+.newaccounttext {
+  float: left;
+}
+
+.forgot,
+.newaccount {
+  float: right;
+}
+
+.signinbutton {
+  padding: 5px;
+  margin: 10px 0;
+  width: 400px;
+  max-width: 100%;
+  letter-spacing: .5px;
+  background-color: #648880;
+  color: #fff;
+  border-radius: 5px;
+}
+
+input:focus { 
+  background-color: yellow;
+}
+
+input[type=text],
+input[type=password],
+textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 5px 5px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 3px solid #DDDDDD;
+}
+ 
+input[type=text]:focus,
+input[type=password]:focus,
+textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 5px 5px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 3px solid rgba(81, 203, 238, 1);
+}
 
 
 
