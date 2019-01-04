@@ -460,7 +460,9 @@ form {
 input,
 select,
 textarea,
-.signinbutton {
+.signinbutton,
+.studentcreatebutton,
+.instructorcreatebutton {
   font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -575,7 +577,7 @@ table h4 {
   color: #a9b2b9;
 }
 
-.signinform {
+.signinformx {
   border: 1px solid #bbb;
   border-radius: 5px;
   width: 400px;
@@ -584,7 +586,20 @@ table h4 {
   padding: 10px;
 }
 
+.signinform,
+.instructorform,
+.joinform {
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+
+}
+
 .signinformtext,
+.joinformtext,
 .forgot,
 .newaccount {
   margin: 5px 0;
@@ -596,8 +611,9 @@ table h4 {
 }
 
 .username,
-.password {
-  width: 400px;
+.password,
+.emailaddress {
+  width: 100%;
   max-width: 100%;
   border-radius: 5px;
 }
@@ -612,15 +628,24 @@ table h4 {
   float: right;
 }
 
-.signinbutton {
+.signinbutton,
+.studentcreatebutton,
+.instructorcreatebutton {
   padding: 5px;
   margin: 10px 0;
-  width: 400px;
-  max-width: 100%;
+  width: 100%;
   letter-spacing: .5px;
   background-color: #648880;
   color: #fff;
   border-radius: 5px;
+}
+
+.instructorform {
+  display: none;
+}
+
+textarea {	
+  width: 100%;
 }
 
 input:focus { 
