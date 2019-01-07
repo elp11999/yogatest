@@ -5,29 +5,28 @@ $(document).ready(function() {
     console.log("CompanYogi started...");
 
     $(".signinbutton").click(function(event) {
-        console.log("SignIn button clicked...");
         window.location.href = "instructors.html";
+    })
+
+    $(".studentradiobutton").click(function(event) {
+        $(".studentcreatebutton").css("display", "block");
+        $(".instructorform").css("display", "none");
     });
 
-    $(".studentcreatebutton").click(function(event) {
-        console.log("Student create button clicked...");
-        window.location.href = "instructors.html";
-    });
-
-    $(".instructorcreatebutton").click(function(event) {
-        console.log("Instructor create button clicked...");
-        window.location.href = "instructors.html";
-    });
-
-    $(".instructorbutton").click(function(event) {
-        console.log("Instructor button clicked...");
+    $(".instructorradiobutton").click(function(event) {
         $(".studentcreatebutton").css("display", "none");
         $(".instructorform").css("display", "block");
     });
 
-    $(".studentbutton").click(function(event) {
-        console.log("Instructor button clicked...");
-        $(".studentcreatebutton").css("display", "block");
-        $(".instructorform").css("display", "none");
+    $(".studentcreatebutton").click(function(event) {
+        window.location.href = "instructors.html";
+    });
+
+    $(".instructorcreatebutton").click(function(event) {
+        window.location.href = "instructors.html";
+    });
+
+    $(".resetuserbutton").click(function(event) {
+        window.location.href = "instructors.html";
     });
 });
