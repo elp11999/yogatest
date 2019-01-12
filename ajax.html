@@ -4,28 +4,33 @@
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>    
 </head>
 <body>
-    <h1>AJAX Test</h1>
-    <input type="file" id="file" />
+    <h1>AJAX Image Test</h1>
+    <input type="file" id="file"/>
+    <br>
+    <br>
     <button onclick="uploadFile();">Upload</button>
-    <button onclick="downloadFile();">Download</button>
+    <!-- <button onclick="downloadFile();">Download</button> -->
 </body>
 <script>
     function uploadFile() {
         var input = document.getElementById("file");
         file = input.files[0];
-        console.log("fileName=", file);
         if (file != undefined) {
             formData= new FormData();
             if(!!file.type.match(/image.*/)) {
                 formData.append("image", file);
                 $.ajax({
-                    url: "http://ocs1803.oc.com:8081/addImage",
+                    url: "addImage",
                     type: "POST",
                     data: formData,
                     processData: false,
                     contentType: false,
                     success: function(data){
-                        alert(data);
+                        var div = $('<div>');                        
+                        var image = $("<br><img src=\"images/" + file.name + "\"" + " height=\"150\" width=\"125\">");
+                        $(div).addClass('mike');
+                        $(div).append(image);
+                        $('body').append(div);
                     }
                 });
             } else {
@@ -36,6 +41,7 @@
         }
     }
 
+    /*
     function downloadFile() {
         var div = $('<div>');
         var image = $('<br><img src="images/MyMugShot.jpg" alt="Mike image" height="150" width="125">');
@@ -43,17 +49,18 @@
         $(div).append(image);
         $('body').append(div);
 
-        /*
-        $.ajax({
-            url: "http://ocs1803.oc.com:8081/getImage",
-            type: "GET",
-            processData: false,
-            contentType: false,
-            success: function(data){
-                alert(data);
-            }
-        });
-        */
+      
+        //$.ajax({
+        //    url: "getImage",
+        //    type: "GET",
+        //    processData: false,
+        //    contentType: false,
+        //    success: function(data){
+        //        alert(data);
+        //    }
+        //});
+        
     }
+    */
 </script>
 </html>

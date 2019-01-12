@@ -35,9 +35,10 @@ const pool = new pg.Pool(
 	}
 );
 
-app.get('/ajax.html', function (req, res) {
+app.get('/*.html', function (req, res) {
+	console.log(req.url);
 	
-	fs.readFile('ajax.html', function(err, data) {
+	fs.readFile("." + req.url, function(err, data) {
 		res.writeHead(200, {'Content-Type': 'text/html'});
 		res.write(data);
 		res.end();
@@ -48,7 +49,7 @@ app.post('/addImage', function (req, res) {
     var form = new formidable.IncomingForm();
     form.parse(req, function (err, fields, files) {
 		var oldpath = files.image.path;
-		var newpath = 'images/' + files.image.name;
+		var newpath = './images/' + files.image.name;
 		fs.rename(oldpath, newpath, function (err) {
 			if (err) 
 				throw err;
@@ -60,16 +61,10 @@ app.post('/addImage', function (req, res) {
 })
 
 app.get('/images/*', function (req, res) {
-	//res.end("images/MyMjugShot.jpg")
-	
-	//fs.readFile('images/MyMjugShot.jpg', function(err, data) {
-	//	res.writeHead(200, {'Content-Type': 'image/jpeg'});
-	//	res.write(data);
-	//	res.end();
-	// });
-	 
-	 res.writeHead(200,{'content-type':'image/jpg'});
-	 fs.createReadStream('images/MyMugShot.jpg').pipe(res);
+	console.log(req.url);
+
+	res.writeHead(200,{'content-type':'image/jpg'});
+	fs.createReadStream("." + req.url).pipe(res);
 })
 
 app.post('/addUser', function (req, res) {
@@ -128,6 +123,7 @@ console.log("Server.js: has started...");
 
 var server = app.listen(8081, function () {
    var host = server.address().address
+   //host = "localhost";
    var port = server.address().port
    console.log("Server.js: listening at http://%s:%s", host, port)
 })
